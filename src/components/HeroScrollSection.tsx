@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CAR_IMAGES } from '../assets/images';
+import { OptimizedImage } from './OptimizedImage';
 import { engineAudio } from '../utils/audio';
 import { Volume2, ChevronDown, ArrowDown } from 'lucide-react';
 
@@ -240,10 +241,12 @@ export const HeroScrollSection: React.FC<HeroScrollSectionProps> = ({ onOpenRese
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[72%] h-6 bg-orange-500/25 blur-xl rounded-full" />
 
             {/* The Sports Car Visual */}
-            <img
+            <OptimizedImage
               src={CAR_IMAGES.heroSide}
+              fallbackSrc="/images/car_hero_side.jpg"
               alt="ITZFIZZ Hypercar profile in vivid racing orange"
-              referrerPolicy="no-referrer"
+              priority={true}
+              containerClassName="w-full flex items-center justify-center"
               className="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)] select-none transition-transform duration-300"
               style={{
                 filter: isRevving ? 'drop-shadow(0 0 30px rgba(249,115,22,0.4))' : 'none',

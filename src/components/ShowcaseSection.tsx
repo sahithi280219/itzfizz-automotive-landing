@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { CAR_IMAGES } from '../assets/images';
+import { CAR_IMAGES, FALLBACK_IMAGES } from '../assets/images';
+import { OptimizedImage } from './OptimizedImage';
 
 interface ShowcaseDetail {
   id: string;
@@ -78,10 +79,11 @@ export const ShowcaseSection: React.FC = () => {
 
         {/* Large Cinematic Automotive Image Display (CAR IS THE VISUAL HERO) */}
         <div className="mt-12 relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl group">
-          <img
+          <OptimizedImage
             src={activeItem.imageSrc}
+            fallbackSrc={FALLBACK_IMAGES[activeItem.imageSrc] || '/images/car_hero_side.jpg'}
             alt={`ITZFIZZ ${activeItem.name}`}
-            referrerPolicy="no-referrer"
+            containerClassName="w-full h-full"
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-102"
           />
 

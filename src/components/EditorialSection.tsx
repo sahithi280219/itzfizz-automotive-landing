@@ -1,5 +1,6 @@
 import React from 'react';
 import { CAR_IMAGES } from '../assets/images';
+import { OptimizedImage } from './OptimizedImage';
 import { ArrowUpRight } from 'lucide-react';
 
 interface EditorialSectionProps {
@@ -80,10 +81,11 @@ export const EditorialSection: React.FC<EditorialSectionProps> = ({ onOpenReserv
           {/* Right Column: Full-Bleed Dramatic Car Photograph (5 Cols) */}
           <div className="lg:col-span-5 relative group">
             <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0c0c10] aspect-[4/5] shadow-2xl">
-              <img
+              <OptimizedImage
                 src={CAR_IMAGES.frontQuarter}
+                fallbackSrc="/images/car_front_quarter.jpg"
                 alt="ITZFIZZ front attack angle in dark studio"
-                referrerPolicy="no-referrer"
+                containerClassName="w-full h-full"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />

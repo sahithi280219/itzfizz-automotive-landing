@@ -1,5 +1,6 @@
 import React from 'react';
 import { CAR_IMAGES } from '../assets/images';
+import { OptimizedImage } from './OptimizedImage';
 import { ArrowRight, ShieldCheck, Mail, MapPin } from 'lucide-react';
 
 interface FinalCTASectionProps {
@@ -13,10 +14,11 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onOpenReserve,
       {/* Full-Bleed Dramatic Hero Backdrop Visual */}
       <div className="relative w-full min-h-[640px] lg:min-h-[720px] flex items-center justify-center py-32 px-6 lg:px-10">
         <div className="absolute inset-0 pointer-events-none">
-          <img
+          <OptimizedImage
             src={CAR_IMAGES.heroSide}
+            fallbackSrc="/images/car_hero_side.jpg"
             alt="ITZFIZZ Hypercar profile"
-            referrerPolicy="no-referrer"
+            containerClassName="w-full h-full"
             className="w-full h-full object-cover opacity-25 filter blur-xs"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-[#050507]/80 to-[#050507]/90" />
